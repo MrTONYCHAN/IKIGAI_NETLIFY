@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IKIGAI - Mr.TONYCHAN</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="icon.png" />
+    <script src="https://kit.fontawesome.com/26504e4a1f.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li class="brand">
+                <img src="logo.png" alt="Spotify" /> IKIGAI
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="songList">
+            <h1>Best of NCS - No Copyright Sounds</h1>
+            <!-- Search Bar -->
+            <input type="text" id="searchBar" placeholder="Search for a song..." oninput="filterSongs()" />
+            <div class="songItemContainer" id="songItemContainer">
+                <!-- Sample song items -->
+                {Array.from({ length: 10 }).map((_, index) => (
+                    <div class="songItem" key={index}>
+                        <img alt={`song-${index + 1}`} src={`song-cover-${index + 1}.jpg`} /> <!-- Example cover image -->
+                        <span class="songName">Song Title {index + 1}</span>
+                        <span class="songlistplay">
+                            <span class="timestamp">02:50</span>
+                            <i id={index} class="far songItemPlay fa-play-circle"></i>
+                        </span>
+                    </div>
+                ))}
+            </div>
+        </div>
+        <div class="songBanner"></div>
+    </div>
+
+    <div class="bottom">
+        <input type="range" id="myProgressBar" min="0" value="0" max="100" />
+        <div class="icons">
+            <i class="fas fa-3x fa-step-backward" id="previous"></i>
+            <i class="far fa-3x fa-play-circle" id="masterPlay"></i>
+            <i class="fas fa-3x fa-step-forward" id="next"></i>
+        </div>
+        <div class="songInfo">
+            <img src="playing.gif" width="42" alt="Now Playing" id="gif" />
+            <span id="masterSongName">Mr.TONYCHAN</span>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer style="text-align: center; padding: 20px; background-color: #1DB954; color: white;">
+        This is handled by Mr. TONYCHAN
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
